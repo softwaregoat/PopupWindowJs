@@ -1,26 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Zoom</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .modal-open .modal {
+            overflow-y: hidden!important;
+        }
+    </style>
 </head>
 <body>
-<div class="row">
-    <div class="col-9  align-content-center" style="align-items:center;text-align: center;margin: auto;">
-        <div class="row" style="justify-content: center;">
-            <p>"STOP!" You need to mute your tab first before proceeding" then on the next line it should say "Right click the tab above and select "Mute Site"</p>
-        </div>
-        <div class="row" style="justify-content: center;">
-            <img src="Mute-Site-Good-Gif.gif" alt="Mute">
-        </div>
 
-        <div class="row" style="justify-content: center;margin: 10px;">
-            <a href="https://zoom.us/wc/join/3050873196?pwd=NEVXcXNvVWNRYWpCSEhFTmJ2Y0Z0Zz09" class="btn btn-primary" >Join Zoom Meeting</a>
-        </div>
+<div class="container" style="align-items:center;text-align: center;margin: auto;">
+    <div class="row zoom-instrunction" style="justify-content: center;">
+        <p>STOP!</p><br>
+    </div>
+    <div class="row zoom-instrunction" style="justify-content: center;">
+        <p>First you need to mute your tab above.</p><br>
+    </div>
+    <div class="row zoom-instrunction" style="justify-content: center;">
+        <p>You can do this by right clicking on the tab above and selecting "Mute Site" or "Mute Tab"</p><br>
+    </div>
+    <div class="row zoom-instrunction" style="justify-content: center;">
+        <img src="Mute-Site-Good-Gif.gif" alt="Mute">
+    </div>
+    <div class="row zoom-instrunction" style="justify-content: center;">
+        <p>After you Mute Site, click the button below to join your meeting</p><br>
+    </div>
+    <div class="row zoom-instrunction" style="justify-content: center;margin: 10px;">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#zoomModal"  style="width: 200px;">Zoom meeting</button>
     </div>
 
+    <!-- Modal -->
+    <div class="modal fade zoomModal" id="zoomModal" role="dialog">
+        <div class="modal-dialog zoomModal">
+            <!-- Modal content-->
+            <div class="modal-content zoomModal">
+                <!--<div class="modal-header">-->
+
+                <!--</div>-->
+                <div class="modal-body">
+                    <iframe src="https://zoom.us/wc/join/3050873196?pwd=NEVXcXNvVWNRYWpCSEhFTmJ2Y0Z0Zz09"
+                            sandbox="allow-forms allow-scripts allow-same-origin allow-pointer-lock allow-popups" allow="microphone; camera" allowfullscreen></iframe>
+                </div>
+                <!--<div class="modal-footer">-->
+                    <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+                <!--</div>-->
+            </div>
+
+        </div>
+    </div>
+<script type="application/javascript">
+    var height = window.screen.height;
+    var width = window.screen.width;
+    $(document).ready(function () {
+        $('iframe').attr("height", height*0.79 + "px");
+        $('iframe').attr("width", width * 0.65 + "px");
+        $('div.zoomModal').css("height", height*0.8 + "px");
+        $('div.zoomModal').css("width", width * 0.7 + "px");
+    });
+</script>
 </div>
+
 </body>
 </html>
